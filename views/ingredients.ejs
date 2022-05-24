@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="column">
+        <div class="wow fadeIn">
+            <div class="card border-0 shadow">
+                <div class="text-center"><h1>Main Distillers</h1></div>
+                <div class="card-body p-1-9 p-xl-5">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="vodka" onclick="checkAll();"/>
+                        <label class="form-check-label" for="vodka">Vodka</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="gin" onclick="checkAll();" />
+                        <label class="form-check-label" for="gin">Gin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rum" onclick="checkAll();"/>
+                        <label class="form-check-label" for="rum">Rum</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="tequila" onclick="checkAll();"/>
+                        <label class="form-check-label" for="tequila">Tequila</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="whiskey" onclick="checkAll();"/>
+                        <label class="form-check-label" for="whiskey">Whiskey</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cognac" onclick="checkAll();"/>
+                        <label class="form-check-label" for="cognac">Cognac</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function checkAll() {  
+            var inputs = document.querySelectorAll('.form-check-input');
+            var distiller_list = [] 
+            for (var i = 0; i < inputs.length; i++) {   
+                if (inputs[i].checked == true) {
+                    distiller_list.push(inputs[i].id);
+                }
+            }
+            console.log(distiller_list)
+        }
+    </script>
+    
+    <div class="column">
+      <h2>Column</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    </div>
+    
+    <div class="column">
+      <h2>Column</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    </div>
+</div>
+  
+

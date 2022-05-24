@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div id="" class="cocktail">
+        <% if (cocktail_list.length > 0) { %>    
+            <% cocktail_list.forEach(function(cocktail, index) { %>
+                <a href="/<%- cocktail.name %>" class="cocktail__card">
+                    <img src="/img/cocktail_imgs/<%- cocktail.img %>" class="cocktail__img" alt=<%- cocktail.name %>></img>
+                    <h2><%- cocktail.name %></h2>
+                    <p><%- cocktail.overview %></p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <h2>No Cocktails Found</h2> 
+        <% } %>
+    </div>
+</div>
+
+

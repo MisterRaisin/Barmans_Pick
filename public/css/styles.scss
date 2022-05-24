@@ -1,0 +1,104 @@
+:root {
+    --bs-font-sans-serif: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #F6F6F6;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, .p, label {
+    margin-bottom: 0.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #FFFFFF;
+    background-color: #10555A;
+    margin-bottom: 10px;
+
+    &__search {
+        input[type=text] {
+            padding: 6px;
+            padding-left: 3px;
+            border: none;
+        }
+
+        input[type=submit] {
+            float: right;
+            padding: 6px;
+            margin-left: 3px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+    .column {
+      width: 100%;
+    }
+}
+
+.wrapper {
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.cocktail {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-gap: 2rem;
+    
+    &__card {
+        text-decoration: none;
+        color: rgb(8, 8, 8);
+        background-color: #FFF;
+        padding: 20px;
+        width: fit-content;
+
+        &:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2); 
+        }
+    }
+
+    &__img {
+        height: 200px;
+        width: 320px;
+        background-color: powderblue;
+    }
+}
+
+

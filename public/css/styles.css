@@ -1,0 +1,112 @@
+:root {
+  --bs-font-sans-serif: 'Rubik', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #F6F6F6;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, .p, label {
+  margin-bottom: 0.5rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  color: #FFFFFF;
+  background-color: #10555A;
+  margin-bottom: 10px;
+}
+
+.header__search input[type=text] {
+  padding: 6px;
+  padding-left: 3px;
+  border: none;
+}
+
+.header__search input[type=submit] {
+  float: right;
+  padding: 6px;
+  margin-left: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  padding: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.cocktail {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-gap: 2rem;
+}
+
+.cocktail__card {
+  text-decoration: none;
+  color: #080808;
+  background-color: #FFF;
+  padding: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.cocktail__card:hover {
+  -webkit-box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+.cocktail__img {
+  height: 200px;
+  width: 320px;
+  background-color: powderblue;
+}
+/*# sourceMappingURL=styles.css.map */

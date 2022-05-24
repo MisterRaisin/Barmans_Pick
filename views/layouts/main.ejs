@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title != 'undefined' ? title: "The Barman's pick" %>
+        
+    </title>
+    <link rel="shortcut icon" type="image/png" href="/img/barmans_icon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <div class="d-flex justify-content-start flex-wrap align-items-center justify-content-lg-start">
+          <a href="/" class="d-flex justify-content-start align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="/img/title1.png" class="bi me-2" aria-label="The Barman's Pick"></img>
+          </a>
+    
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0">
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="/ingredient_browser" class="nav-link px-2 text-secondary">Ingredient Browser</a></li>
+          </ul>
+    
+          <form method="POST" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="search">
+            <input type="search" name="searchTerm" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+          </form>
+        </div>
+      </div>
+    </header>
+
+
+
+    <main>
+      <%- body -%>
+      </main>
+        
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Made by Yuval Rosiner.</span>
+  </div>
+</footer>
+</html>
