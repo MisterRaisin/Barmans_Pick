@@ -1,4 +1,5 @@
 require('../models/database');
+const { Query } = require('mongoose');
 const Cocktail = require('../models/Cocktail');
 const Ingredient = require('../models/Ingredient');
 
@@ -10,7 +11,7 @@ const Ingredient = require('../models/Ingredient');
 exports.homepage = async(req, res) => {
     try {
 
-        const cocktails = await Cocktail.find({});
+        const cocktails = await Cocktail.find({}).sort({name: 1});
         res.render('index', {cocktail_list: cocktails});
     } catch (error) {
         res.status(500).send({message: error.message} || "ERROR OCCURED");
@@ -23,7 +24,7 @@ exports.search = async(req, res) => {
 
         let searchTerm = req.body.searchTerm;
 
-        const cocktails = await Cocktail.find({$or:[ {"name": {$regex: searchTerm, $options: "i" }}, {ingredients: {$elemMatch: {ingredient: {$regex: searchTerm, $options: "i" }}}}]});
+        const cocktails = await Cocktail.find({$or:[ {"name": {$regex: searchTerm, $options: "i" }}, {ingredients: {$elemMatch: {ingredient: {$regex: searchTerm, $options: "i" }}}}]}).sort({name: 1});
         res.render('index', {cocktail_list: cocktails});
     } catch (error) {
         res.status(500).send({message: error.message} || "ERROR OCCURED");
@@ -50,6 +51,33 @@ exports.ingredients = async(req, res) => {
       res.status(500).send({message: error.message} || "ERROR OCCURED");
   }
 }
+
+
+exports.getcocktails = async(req, res) => {
+  try {
+    let response = ""
+    let ingredient_list = req.body.query;
+    console.log(ingredient_list)
+    
+    if (ingredient_list.length > 0) {
+      const cocktails = await Cocktail.find({"ingredients.ingredient": {$all : ingredient_list} }).sort({name: 1})
+
+      if (cocktails.length > 0) {
+        cocktails.forEach(function(cocktail, index) {
+          response = response + '<a href="/' + cocktail.name + '"><b>' + cocktail.name + '</b></a><br>'
+        })
+      } else {
+        response = '<b>No Cocktails Fitting these Ingredients</b>'
+      }
+    }
+    else {
+      response = '<b>No Cocktails Fitting these Ingredients</b>'
+    }
+    res.send({response: response})
+  } catch (error) {
+      res.status(500).send({message: error.message} || "ERROR OCCURED");
+  }
+} 
 
 
 
@@ -85,7 +113,7 @@ function getAndUpdateIngredientList(ingredient_list) {
   }
 }
 
-var cocktail = new Cocktail({ "name": "Alexander",
+var alexander = new Cocktail({ "name": "Alexander",
 "overview": "A great after-dinner classic. Rich feeling of cream and subtle chocolaty.",
 "glass": {"name":"martini", "chilled":true},
 "ingredients": [
@@ -103,7 +131,7 @@ var cocktail = new Cocktail({ "name": "Alexander",
 "img": "alexander_img.jpg",
 "preparation": "Shake and strain into a chilled cocktail glass." })
 
-var cocktail2 = new Cocktail({ "name": "Aviation",
+var aviation = new Cocktail({ "name": "Aviation",
 "overview": "AHHHHHHHHHHHHHH",
 "glass": {"name":"martini", "chilled":true},
 "ingredients": [
@@ -121,4 +149,22 @@ var cocktail2 = new Cocktail({ "name": "Aviation",
 "img": "aviation_img.jpg",
 "preparation": "Shake and strain into a chilled cocktail glass." })
 
-// insertCocktailData(cocktail2);
+var angel_face = new Cocktail({ "name": "Angel Face",
+"overview": "A good all-day cocktail mainly based on gin.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Gin" },
+  {
+    "amount": 30,
+    "ingredient": "Apricot brandy" },
+  {
+    "amount": 30,
+    "ingredient": "Calvados" }
+],
+"img": "angel_face_img.jpg",
+"preparation": "Shake with ice cubes. Strain into a cocktail glass." })
+
+
+// insertCocktailData(angel_face);

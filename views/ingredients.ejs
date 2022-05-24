@@ -5,35 +5,35 @@
                 <div class="text-center"><h1>Main Distillers</h1></div>
                 <div class="card-body p-1-9 p-xl-5">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="vodka" onclick="checkAll();"/>
-                        <label class="form-check-label" for="vodka">Vodka</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Vodka" onclick="checkAll();"/>
+                        <label class="form-check-label" for="Vodka">Vodka</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="gin" onclick="checkAll();" />
-                        <label class="form-check-label" for="gin">Gin</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Gin" onclick="checkAll();" />
+                        <label class="form-check-label" for="Gin">Gin</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="rum" onclick="checkAll();"/>
-                        <label class="form-check-label" for="rum">Rum</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Rum" onclick="checkAll();"/>
+                        <label class="form-check-label" for="Rum">Rum</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="tequila" onclick="checkAll();"/>
-                        <label class="form-check-label" for="tequila">Tequila</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Tequila" onclick="checkAll();"/>
+                        <label class="form-check-label" for="Tequila">Tequila</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="whiskey" onclick="checkAll();"/>
-                        <label class="form-check-label" for="whiskey">Whiskey</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Whiskey" onclick="checkAll();"/>
+                        <label class="form-check-label" for="Whiskey">Whiskey</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cognac" onclick="checkAll();"/>
-                        <label class="form-check-label" for="cognac">Cognac</label>
+                        <input class="form-check-input" type="checkbox" value="" id="Cognac" onclick="checkAll();"/>
+                        <label class="form-check-label" for="Cognac">Cognac</label>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function checkAll() {  
+        function checkAll() { 
             var inputs = document.querySelectorAll('.form-check-input');
             var distiller_list = [] 
             for (var i = 0; i < inputs.length; i++) {   
@@ -41,7 +41,7 @@
                     distiller_list.push(inputs[i].id);
                 }
             }
-            console.log(distiller_list)
+            showResults(distiller_list)
         }
     </script>
     
@@ -51,9 +51,29 @@
     </div>
     
     <div class="column">
-      <h2>Column</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+        <div class="wow fadeIn">
+            <div class="card border-0 shadow">
+                <div class="text-center"><h1>Available Cocktails</h1></div>
+                <div class="card-body">
+                    <div class="card shadow mb-4">
+                        <div class="card-body p-2">
+                            <div id="available_cocktails">
+                                <ul>
+                                    <script>
+                                        
+                                    </script>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
-  
+<script src="/js/scripts.js"></script>
+
+
 
