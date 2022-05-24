@@ -10,7 +10,7 @@
                         <h3 class="h4 mb-0"><%- cocktail.name %></h3>
                     </div>
                     <ul class="list-unstyled mb-4">
-                        <li class="mb-3"><a href="#!"><i class="far fa-envelope display-25 me-3 text-secondary"></i>dakota@gmail.com</a></li>
+                        <li class="mb-3"><%- cocktail.overview %></li>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                         <div class="project-info-box">
                             <% cocktail.ingredients.forEach(function(ingredient, index) { %>
                                 <% if (ingredient.amount != 0) { %>
-                                    <p><b><%- ingredient.ingredient %> -</b> <%- ingredient.amount %> ml</p>
+                                    <p><b><%- ingredient.label %><%- ingredient.ingredient %> -</b> <%- ingredient.amount %> ml</p>
                                 <% } else { %>
                                     <p><b><%- ingredient.ingredient %></b></p>
                                 <% } %>

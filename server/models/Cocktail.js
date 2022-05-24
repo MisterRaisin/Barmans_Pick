@@ -19,7 +19,11 @@ const cocktailSchema = new mongoose.Schema({
     },
     ingredients: [{
         ingredient: String,
-        amount: Number
+        amount: Number,
+        label: {
+            type: String,
+            default: ""
+        }
     }],
     preparation: {
         type: String,
