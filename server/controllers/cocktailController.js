@@ -46,7 +46,10 @@ exports.detail = async(req, res) => {
 
 exports.ingredients = async(req, res) => {
   try {
-      res.render('ingredients', {});
+      const main_distillers = await Ingredient.find({type: 'main distiller'})
+      const liqueur = await Ingredient.find({"type": "liquer"})
+      const generic = await Ingredient.find({"type": "generic"})
+      res.render('ingredients', {main_distillers : main_distillers, liqueur: liqueur, generic: generic});
   } catch (error) {
       res.status(500).send({message: error.message} || "ERROR OCCURED");
   }
@@ -59,7 +62,7 @@ exports.getcocktails = async(req, res) => {
     let ingredient_list = req.body.query;
     
     if (ingredient_list.length > 0) {
-      const cocktails = await Cocktail.find({"ingredients.ingredient": {$all : ingredient_list} }).sort({name: 1})
+      const cocktails = await Cocktail.find({"ingredients.ingredient": {$in : ingredient_list }})
 
       if (cocktails.length > 0) {
         cocktails.forEach(function(cocktail, index) {
@@ -99,11 +102,13 @@ function getAndUpdateIngredientList(ingredient_list) {
         if (ingredient.length) {
           //
         } else {
-          const new_ingredient = new Ingredient({
-            "ingredient" : ingredient_each.ingredient,
-          })
-          Ingredient.insertMany(new_ingredient)
-          console.log("Inserted new ingredient: ", new_ingredient.ingredient)
+          if (ingredient.amount != 0) {
+            const new_ingredient = new Ingredient({
+              "ingredient" : ingredient_each.ingredient,
+            })
+            Ingredient.insertMany(new_ingredient)
+            console.log("Inserted new ingredient: ", new_ingredient.ingredient)
+          }
         }
     })});
   } catch (error) {

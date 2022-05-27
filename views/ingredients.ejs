@@ -4,30 +4,12 @@
             <div class="card border-0 shadow">
                 <div class="text-center"><h1>Main Distillers</h1></div>
                 <div class="card-body p-1-9 p-xl-5">
+                    <% main_distillers.forEach(function(distiller, index) { %>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Vodka" onclick="checkAll();"/>
-                        <label class="form-check-label" for="Vodka">Vodka</label>
+                        <input class="form-check-input" type="checkbox" value="" id=<%- distiller.ingredient %> onclick="checkAll();"/>
+                        <label class="form-check-label" for=<%- distiller.ingredient %>><%- distiller.ingredient %></label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Gin" onclick="checkAll();" />
-                        <label class="form-check-label" for="Gin">Gin</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Rum" onclick="checkAll();"/>
-                        <label class="form-check-label" for="Rum">Rum</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Tequila" onclick="checkAll();"/>
-                        <label class="form-check-label" for="Tequila">Tequila</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Whiskey" onclick="checkAll();"/>
-                        <label class="form-check-label" for="Whiskey">Whiskey</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="Cognac" onclick="checkAll();"/>
-                        <label class="form-check-label" for="Cognac">Cognac</label>
-                    </div>
+                    <% }) %>
                 </div>
             </div>
         </div>
