@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const ingredientSchema = new mongoose.Schema({
-    ingredient: {
+    name: {
         type: String,
         required: true
     },
     type: {
         type: String,
-        required: true
+        default: ""
     }
 });
 
