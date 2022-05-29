@@ -13,7 +13,7 @@ function showResults(ingredients_list) {
     })
 }
 
-// get the selected distillers by class name
+// get the selected distillers by class name and id
 function getSelectedDistillers() { 
     var inputs = document.querySelectorAll('.form-check-input');
     var distiller_list = [] 
@@ -26,7 +26,7 @@ function getSelectedDistillers() {
 }
 
 
-// get the selected liquers by class name
+// get the selected liquers by class name and id
 function getSelectedLiquers() { 
     var inputs = document.querySelectorAll('.liqeur_close');
     var liquer_list = [] 
@@ -42,7 +42,6 @@ function refreshAvailableCocktails(){
     const distiller_list = getSelectedDistillers()
     const liquer_list = getSelectedLiquers()
     const ingredient_list = distiller_list.concat(liquer_list)
-    console.log(ingredient_list)
     showResults(ingredient_list)
 }
 
@@ -63,20 +62,25 @@ function filterFunction() {
   }
 }
 
+// Show the liquer dropdown menu
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-
-function selectLiquer(liquer) {
+// Function that runs when the user clicks on a liquer from the list
+function selectLiquer(liquer_id, liquer_name) {
+    // Gets all already chose liquers
     const chosen_liquer_list = document.querySelectorAll('.liqeur_close');
+    // Checks that the user didnt already select this liquer (No duplicates can happen)
     for (var i = 0; i < chosen_liquer_list.length; i++) {   
-        if (chosen_liquer_list[i].id === liquer) {
+        if (chosen_liquer_list[i].id === liquer_id) {
             return
         }   
     }
     
-    document.getElementById("show_liquer_selection").innerHTML += `<li class ="liqeur_close" id="${liquer}">${liquer}<span class="close", onclick="delete_liquer(this)">&times;</span></li>`
+    // Create a element of the chosen liquer so the user can see what he chose
+    document.getElementById("show_liquer_selection").innerHTML += `<li class ="liqeur_close" id="${liquer_id}">${liquer_name}<span class="close", onclick="delete_liquer(this)">&times;</span></li>`
+    // Refresh the list of available cocktails with the new liquer implemented
     refreshAvailableCocktails()
 }
 

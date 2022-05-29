@@ -6,8 +6,8 @@
                 <div class="card-body p-1-9 p-xl-5">
                     <% main_distillers.forEach(function(distiller, index) { %>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id=<%- distiller.ingredient %> onclick="refreshAvailableCocktails();"/>
-                        <label class="form-check-label" for=<%- distiller.ingredient %>><%- distiller.ingredient %></label>
+                        <input class="form-check-input" type="checkbox" value="" id=<%- distiller.id %> onclick="refreshAvailableCocktails();"/>
+                        <label class="form-check-label" for=<%- distiller.id %>><%- distiller.name %></label>
                     </div>
                     <% }) %>
                 </div>
@@ -22,7 +22,7 @@
                 <div id="myDropdown" class="dropdown-content">
                     <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
                     <% liqueur.forEach(function(liqueur, index) { %>
-                        <label class="liqueur" id="<%- liqueur.ingredient %>" onclick="selectLiquer(this.id)"><%- liqueur.ingredient %></label>
+                        <label class="liqueur" id="<%- liqueur.id %>" onclick="selectLiquer(this.id, '<%- liqueur.name %>')"><%- liqueur.name %></label><br>
                 <% }) %>
                 </div>
             </div>
