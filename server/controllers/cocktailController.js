@@ -78,7 +78,7 @@ exports.getcocktails = async(req, res) => {
         
         cocktails.forEach(function(cocktail, index1) {
           // cocktail.populate('ingredients.ingredient')
-          cocktail['missing_ingredients'] = ''
+          cocktail['missing_ingredients'] = []
           cocktail['missing_ingredients_count'] = 0
           
           cocktail.ingredients.forEach(function(ingredient, index2) {
@@ -86,7 +86,7 @@ exports.getcocktails = async(req, res) => {
             if (ingredient.amount === 0 || ingredient.ingredient.type === 'general') return;
      
             if (ingredient_list.indexOf(ingredient.ingredient.id) === -1){
-              cocktail['missing_ingredients'] = cocktail['missing_ingredients'] + ingredient.ingredient.name + " | "
+              cocktail['missing_ingredients'].push(ingredient.ingredient.name)
               cocktail['missing_ingredients_count'] = cocktail['missing_ingredients_count'] + 1
             }
           });
@@ -96,21 +96,25 @@ exports.getcocktails = async(req, res) => {
             res_0_missing = res_0_missing + `<a href="/${cocktail.name}" style="color:inherit;text-decoration: none;"><b><u>${cocktail.name}</u></b> - ${cocktail.overview} </a><br><br>`
           }
           else if (cocktail['missing_ingredients_count'] === 1) {
-            res_1_missing = res_1_missing + `<a href="/${cocktail.name}" style="color:inherit;text-decoration: none;"><b><u>${cocktail.name}</u></b> - Missing only - ${cocktail.missing_ingredients}</a><br><br>`
+            res_1_missing = res_1_missing + `<a href="/${cocktail.name}" style="color:inherit;text-decoration: none;"><b><u>${cocktail.name}</u></b></a> - Missing only - <a href="https://www.google.com/search?q=${cocktail.missing_ingredients[0]}"><b>${cocktail.missing_ingredients[0]}</b></a><br><br>`
           }
           else if (cocktail['missing_ingredients_count'] === 2) {
-            res_2_missing = res_2_missing + `<a href="/${cocktail.name}" style="color:inherit;text-decoration: none;"><b><u>${cocktail.name}</u></b> - Missing both - ${cocktail.missing_ingredients}</a><br><br>`
+            res_2_missing = res_2_missing + `<a href="/${cocktail.name}" style="color:inherit;text-decoration: none;"><b><u>${cocktail.name}</u></b></a> - Missing both - `
+            for (var i = 0; i < cocktail.missing_ingredients.length; i++) {
+              res_2_missing = res_2_missing + `<a href="https://www.google.com/search?q=${cocktail.missing_ingredients[i]}"><b>${cocktail.missing_ingredients[i]}</b></a> | `
+            }
+            res_2_missing = res_2_missing + `<br><br>` 
           }
         })
         // Format the response string
         if (res_0_missing != '') {
-          response = response + `<b><u>Cocktails which you can make:</u></b><br><br>${res_0_missing}<br>`
+          response = response + `<h5><b><u>Cocktails which you can make:</u></b></h5><br>${res_0_missing}<br>`
         }
         if (res_1_missing != '') {
-          response = response + `<b><u>Cocktails which require you to get only 1 more ingredient:</u></b><br><br>${res_1_missing}<br>`
+          response = response + `<h5><b><u>Cocktails which require you 1 more ingredient:</u></b></h5><br>${res_1_missing}<br>`
         }
         if (res_2_missing != '') {
-          response = response + `<b><u>Cocktails which require you to 2 more ingredient:</u></b><br><br>${res_2_missing}<br>`
+          response = response + `<h5><b><u>Cocktails which require you 2 more ingredient:</u></b></h5><br>${res_2_missing}<br>`
         }
         res.send({response: response})
     });
