@@ -22,7 +22,7 @@
                 <div id="myDropdown" class="dropdown-content">
                     <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
                     <% liqueur.forEach(function(liqueur, index) { %>
-                        <label class="liqueur" id="<%- liqueur.id %>" onclick="selectLiquer(this.id, '<%- liqueur.name %>')"><%- liqueur.name %></label><br>
+                        <label class="liqueur" id="<%- liqueur.id %>" onclick="selectLiquer(this.id, '<%- liqueur.name %>')"><%- liqueur.name %></label>
                 <% }) %>
                 </div>
             </div>

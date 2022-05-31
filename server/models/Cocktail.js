@@ -20,10 +20,8 @@ const cocktailSchema = new mongoose.Schema({
     ingredients: [{
         ingredient: { type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' },
         amount: Number,
-        label: {
-            type: String,
-            default: ""
-        }
+        diff_amount: String,
+        label: String
     }],
     preparation: {
         type: String,

@@ -29,7 +29,11 @@
                         <div class="project-info-box">
                             <% cocktail.ingredients.forEach(function(ingredient, index) { %>
                                 <% if (ingredient.amount != 0) { %>
-                                    <p><b><%- ingredient.label %><%- ingredient.ingredient.name %> -</b> <%- ingredient.amount %> ml</p>
+                                    <% if (ingredient.amount === -1) { %>
+                                        <p><b><%- ingredient.ingredient.name %> -</b> <%- ingredient.diff_amount %></p>
+                                    <% } else { %>
+                                        <p><b><%- ingredient.ingredient.name %><%- ingredient.label %> -</b> <%- ingredient.amount %> ml</p>
+                                    <% } %>
                                 <% } else { %>
                                     <p><b><%- ingredient.label %></b></p>
                                 <% } %>
