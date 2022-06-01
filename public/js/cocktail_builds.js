@@ -543,3 +543,372 @@ var cuba_libre  = { "name": "Cuba Libre",
 "img": "cuba_libre_img.jpg",
 "preparation": "Add the Rum to a high-ball glass. Fill with ice and then top with Cola. Remember to stir everything together" }
 exports.cuba_libre = cuba_libre;
+
+
+var el_diablo = { "name": "El Diablo",
+"overview": "Tequila based cocktail. Has a berry-soury flavor which is semi-sweet.",
+"glass": {"name":"high-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Tequila"},
+  {
+    "amount": 15,
+    "ingredient": "Crème de cassis" },
+  {
+    "amount": 15,
+    "ingredient": "Lime Juice",
+    "label": " (or Lemon Juice)" },
+  {
+    "amount": -1,
+    "ingredient": "Ginger Ale",
+    "diff_amount": "Fill until glass is topped"}
+      
+],
+"garnish": "Lime/Lemon Wedge or a Raspberry",
+"img": "el_diablo_img.jpg",
+"preparation": "Add Tequila, Crème de cassis, and the lime juice to a shaker and shake with ice. Pour into a high-ball, add ice, and top with Ginger Ale." }
+exports.el_diablo = el_diablo;
+
+
+var french75  = { "name": "French 75",
+"overview": "Gin based occktail. Has a sweet and soury taste followed by the feeling abd taste of sparkling wine.",
+"glass": {"name":"champagne", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Gin"},
+  {
+    "amount": 10,
+    "ingredient": "Lemon juice" },
+      {
+        "amount": 15,
+        "ingredient": "Sugar Water"},
+        {
+          "amount": -1,
+          "ingredient": "Sparkling Wine",
+          "diff_amount": "Fill until glass is topped"}
+      
+],
+"garnish": "Lemon peel",
+"img": "french75_img.jpg",
+"preparation": "Add Gin, sugar water, and the lemon juice to a shaker and shake with ice. Strain into a champagne glass and top with Sparkling Wine." }
+exports.french75 = french75;
+
+
+var golden_cadillac  = { "name": "Golden Cadillac",
+"overview": "A rich and creamy cocktail with chocolate-vanilla taste.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Galliano"},
+  {
+    "amount": 30,
+    "ingredient": "Cacao Créme liqueur" },
+  {
+    "amount": 30,
+    "ingredient": "Cream"}
+     
+],
+"garnish": "Grounded Nutmeg",
+"img": "golden_cadillac_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a cockail glass." }
+exports.golden_cadillac = golden_cadillac;
+
+
+var harvey_wallbanger  = { "name": "Harvey Wallbanger",
+"overview": "A Vodka based cocktail. With a sour-sweet taste from the combination of the vanilla-taste liquer and orange juice.",
+"glass": {"name":"high-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Vodka"},
+  {
+    "amount": 30,
+    "ingredient": "Galliano" },
+    {
+      "amount": -1,
+      "ingredient": "Orange Juice",
+      "diff_amount": "Fill until glass is topped"}
+     
+],
+"garnish": "Orange wedge",
+"img": "harvey_wallbanger_img.jpg",
+"preparation": "Add all ingredients to a high-ball glass with ice and stir." }
+exports.harvey_wallbanger = harvey_wallbanger;
+
+
+var jasmine  = { "name": "Jasmine",
+"overview": "A Gin based cocktail with a sweet-sour taste. Made for people who like sour drinks",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Gin"},
+  {
+    "amount": 30,
+    "ingredient": "Triple-Sec" },
+  {
+    "amount": 22.5,
+    "ingredient": "Campari"},
+  {
+    "amount": 15,
+    "ingredient": "Lemon Juice"}
+     
+],
+"garnish": "Lemon twist",
+"img": "jasmine_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a cockail glass." }
+exports.jasmine = jasmine;
+
+
+var kamikaze  = { "name": "Kamikaze",
+"overview": "A Vodka based cocktail with a soury taste. Made for people who like sour drinks",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Vodka"},
+  {
+    "amount": 30,
+    "ingredient": "Triple-Sec" },
+  {
+    "amount": 30,
+    "ingredient": "Lemon Juice"}
+     
+],
+"garnish": "Lemon twist",
+"img": "kamikaze_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a cockail glass." }
+exports.kamikaze = kamikaze;
+
+
+var mai_tai  = { "name": "Mai Tai",
+"overview": "A Rum based cocktail with a fruity taste. Add the garnish to amplify to fruitiness of the cocktail.",
+"glass": {"name":"low-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Rum",
+    "label": " (30 ml white Rum, 30 ml smoked Rum)"},
+  {
+    "amount": 15,
+    "ingredient": "Triple-Sec" },
+  {
+    "amount": 22.5,
+    "ingredient": "Lime Juice",
+    "label": " (or Lemon Juice)"},
+  {
+    "amount": 15,
+    "ingredient": "Almond Syrup"}
+     
+],
+"garnish": "Pineapple / Cherry / Mint",
+"img": "mai_tai_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a low-ball glass." }
+exports.mai_tai = mai_tai;
+
+
+var orgasm  = { "name": "Orgasm",
+"overview": "A rich and creamy cocktail filled with creamy sweetness.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Irish Cream"},
+  {
+    "amount": 45,
+    "ingredient": "Coffee Liquer" },
+  {
+    "amount": 45,
+    "ingredient": "Heavy Cream"},   
+],
+"garnish": "Grounded Nutmeg",
+"img": "orgasm_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a cocktail glass." }
+exports.orgasm = orgasm;
+
+
+var pina_colada  = { "name": "Pina Colada",
+"overview": "The original tropical cocktail. Based on Rum this cocktail has a island-fruity taste with coconut and pineapple flavors.",
+"glass": {"name":"hurricane", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Rum"},
+  {
+    "amount": 15,
+    "ingredient": "Coconut Cream" },
+  {
+    "amount": 30,
+    "ingredient": "Pineapple Juice"},   
+],
+"garnish": "Pineapple or Cherry",
+"img": "pina_colada_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a hurricane glass." }
+exports.pina_colada = pina_colada;
+
+var pink_squirrel  = { "name": "Pink Squirrel",
+"overview": "A rich, sweet, and creamy cocktail that tastes of almonds and chocolate.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Dissarono-Amaretto"},
+  {
+    "amount": 30,
+    "ingredient": "Cacao Créme liqueur" },
+  {
+    "amount": 30,
+    "ingredient": "Heavy Cream"},   
+],
+"garnish": "Grounded Nutmeg",
+"img": "pink_squirrel_img.jpg",
+"preparation": "Add all ingredients to a shaker and shake with ice. Strain into a cocktail glass." }
+exports.pink_squirrel = pink_squirrel;
+
+var sazerac = { "name": "Sazerac",
+"overview": "A Rye Whiskey based cocktail. Has the cool taste of whiskey with a pinch of sweetness added to it.",
+"glass": {"name":"low-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Whiskey Rye",
+    "label": " (or Cognac)" },
+  {
+    "amount": 10,
+    "ingredient": "Sugar Water" },
+    {
+      "amount": -1,
+      "ingredient": "Peychauds Bitters",
+      "diff_amount": "4 dashes" }
+],
+"garnish": "Lemon twist",
+"img": "sazerac_img.jpg",
+"preparation": "Stirred in a stirring glass, then strained to a pre-chilled low-ball glass." }
+exports.sazerac = sazerac;
+
+
+var sex_on_the_beach = { "name": "Sex on the Beach",
+"overview": "One of the classic Vodka based cocktail. Has a an amazing sweet and fruity taste.",
+"glass": {"name":"highball or Hurricane", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Vodka"},
+  {
+    "amount": 15,
+    "ingredient": "Apple Liquer" },
+  {
+    "amount": 15,
+    "ingredient": "Pear Liquer" },
+  {
+    "amount": -1,
+    "ingredient": "Raspberry Juice",
+    "diff_amount": "Fill until glass is topped"}
+      
+],
+"garnish": "Lemon wedge",
+"img": "sex_on_the_beach_img.jpg",
+"preparation": "Built inside the glass itself. Add the Vodka and liquers, fill with ice and then top with raspberry juice." }
+exports.sex_on_the_beach = sex_on_the_beach;
+
+
+var aperol_spritz = { "name": "Aperol Spritz",
+"overview": "A world-wide known cocktail known for its simplicity and sweety taste.",
+"glass": {"name":"wine or Low-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 30,
+    "ingredient": "Aperol"},
+  {
+    "amount": 95,
+    "ingredient": "Sparkling Wine" },
+  {
+    "amount": 15,
+    "ingredient": "Sparkling Water" }
+],
+"garnish": "Orange wedge",
+"img": "aperol_spritz_img.jpg",
+"preparation": "Built inside the glass itself. Add all the ingredients and stir." }
+exports.aperol_spritz = aperol_spritz;
+
+
+var tequila_sunrise  = { "name": "Tequila Sunrise",
+"overview": "A classic Tequila based cocktail. Has a soury taste of orange juice which goes great with tequila.",
+"glass": {"name":"high-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Tequila"},
+  {
+    "amount": -1,
+    "ingredient": "Orange Juice",
+    "diff_amount": "Fill until glass is topped"}
+      
+],
+"garnish": "Orange wedge",
+"img": "tequila_sunrise_img.jpg",
+"preparation": "Add the tequila to the high-ball, fill with ice, top with orange juice and stir." }
+exports.tequila_sunrise = tequila_sunrise;
+
+var toronto  = { "name": "Toronto",
+"overview": "Rye Whiskey based cocktail. Taste similar to the Manhatten but with a little more sweety punch.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Rye Whiskey"},
+  {
+    "amount": 10,
+    "ingredient": "Sugar Water" },
+    {
+        "amount": 5,
+        "ingredient": "Fernet-Branca"}
+      
+],
+"garnish": "Lemon twist",
+"img": "toronto_img.jpg",
+"preparation": "Stirred in a stirring glass, then strained to a cocktail glass." }
+exports.toronto = toronto;
+
+var sidecar = { "name": "Sidecar",
+"overview": "A Cognac based cocktail. The cocktail has lighter fruity taste which is balanced with the sourness of lemon and orange.",
+"glass": {"name":"martini", "chilled":true},
+"ingredients": [
+  {
+    "amount": 60,
+    "ingredient": "Cognac" },
+  {
+    "amount": 30,
+    "ingredient": "Triple-Sec" },
+  {
+    "amount": 30,
+    "ingredient": "Lemon Juice" }
+],
+"garnish" : "Crown of sugar",
+"img": "sidecar_img.jpg",
+"preparation": "Shake in a shaker with ice and strain into a chilled cocktail glass." }
+exports.sidecar = sidecar
+
+var woo_woo  = { "name": "Woo Woo (11-11)",
+"overview": "A Vodka based cocktail. Has a sweet-fruity taste of raspberry juice and pears.",
+"glass": {"name":"high-ball", "chilled":true},
+"ingredients": [
+  {
+    "amount": 45,
+    "ingredient": "Vodka"},
+  {
+    "amount": 15,
+    "ingredient": "Pear Liquer"},
+  {
+    "amount": -1,
+    "ingredient": "Raspberry Juice",
+    "diff_amount": "Fill until glass is topped"}
+      
+],
+"garnish": "Lemon wedge",
+"img": "woo_woo_img.jpg",
+"preparation": "Add the Vodka and pear liquer to the high-ball, fill with ice, top with raspberry juice and stir." }
+exports.woo_woo = woo_woo;

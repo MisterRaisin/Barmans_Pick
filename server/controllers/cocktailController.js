@@ -192,8 +192,5 @@ function getAndUpdateIngredientList(cocktail) {
 
 
 
-
-
-
-// insertCocktailData(cocktail_builds.clover_club)
+// insertCocktailData(cocktail_builds.sazerac)
 
