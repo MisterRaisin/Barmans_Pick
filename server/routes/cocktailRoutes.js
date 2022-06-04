@@ -7,6 +7,7 @@ const cocktailController = require('../controllers/cocktailController');
  */
 router.get('/', cocktailController.homepage);
 router.get('/ingredient_browser', cocktailController.ingredients);
+router.get('/about', cocktailController.about);
 router.post('/getcocktails', cocktailController.getcocktails);
 router.post('/search', cocktailController.search);
 router.get('/:cocktailName', cocktailController.detail);

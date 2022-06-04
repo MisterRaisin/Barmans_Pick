@@ -19,6 +19,17 @@ exports.homepage = async(req, res) => {
 
 }
 
+
+exports.about = async(req, res) => {
+  try {
+
+      res.render('about', {});
+  } catch (error) {
+      res.status(500).send({message: error.message} || "ERROR OCCURED");
+  }
+
+}
+
 exports.search = async(req, res) => {
     try {
 
