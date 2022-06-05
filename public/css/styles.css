@@ -194,3 +194,11 @@ h2 {
 }
 
 .close:hover {background: #bbb;}
+
+
+
+/* Contact form css*/
+.required-field::after {
+  content: " *";
+  color: red;
+}

@@ -1,3 +1,25 @@
+// Contact form validation
+function validateForm() {
+    var form_list = {}
+    form_list['name'] = document.forms["contact-form"]["name"].value;
+    form_list['email'] = document.forms["contact-form"]["email"].value;
+    form_list['subject'] = document.forms["contact-form"]["subject"].value;
+    form_list['message'] = document.forms["contact-form"]["message"].value;
+    var flag = false
+
+    for (var i in form_list) {
+        if (form_list[i] == "") {
+            flag = true
+        } 
+    }
+
+    if (flag) {
+        return false;
+    } 
+}
+
+
+
 
 // Main Distiller js
 let search = $("#available_cocktails");

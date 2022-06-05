@@ -2,6 +2,7 @@ require('../models/database');
 const Cocktail = require('../models/Cocktail');
 const Ingredient = require('../models/Ingredient');
 const cocktail_builds = require('../../public/js/cocktail_builds')
+const sgMail = require('@sendgrid/mail');
 
 
 /**
@@ -22,12 +23,35 @@ exports.homepage = async(req, res) => {
 
 exports.about = async(req, res) => {
   try {
-
       res.render('about', {});
   } catch (error) {
       res.status(500).send({message: error.message} || "ERROR OCCURED");
   }
+}
 
+
+exports.contact = async(req, res) => {
+  try {
+      res.render('contact', {email_sent: false});
+  } catch (error) {
+      res.status(500).send({message: error.message} || "ERROR OCCURED");
+  }
+}
+
+exports.process_contact = async(req, res) => {
+  user_message = req.body
+  const msg = {
+    to: process.env.RECIPIENT,
+    from: process.env.SENDER,
+    subject: user_message.subject,
+    text: `Message from ${user_message.name}. Email: ${user_message.email}\n${user_message.message}`,
+  }
+  sgMail.send(msg).then(() => {
+    res.render('contact', {email_sent: true});
+  })
+  .catch((error) => {
+    res.send(`There was a problem with sending the email. Please try later to send this error message to me:\n '${error}'`)
+  })
 }
 
 exports.search = async(req, res) => {
