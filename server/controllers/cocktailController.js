@@ -40,17 +40,13 @@ exports.contact = async(req, res) => {
 
 exports.process_contact = async(req, res) => {
   user_message = req.body
-  console.log('Recipient ' + process.env.RECIPIENT)
-  console.log('Sender ' + process.env.SENDER)
-  if (process.env.SENDER == null || process.env.RECIPIENT == null) return;
   const msg = {
     to: process.env.RECIPIENT,
     from: process.env.SENDER,
     subject: user_message.subject,
     text: `Message from ${user_message.name}. Email: ${user_message.email}\n${user_message.message}`,
   }
-  sgMail.send(msg)
-  .then(() => {
+  sgMail.send(msg).then(() => {
     res.render('contact', {email_sent: true});
   })
   .catch((error) => {
