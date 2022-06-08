@@ -15,7 +15,7 @@ exports.homepage = async(req, res) => {
         const cocktails = await Cocktail.find({}).sort({name: 1});
         res.render('index', {cocktail_list: cocktails});
     } catch (error) {
-        res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with viewing the 'home' page. Please try later to send this error message to me:\n '${error}'`)
     }
 
 }
@@ -25,7 +25,7 @@ exports.about = async(req, res) => {
   try {
       res.render('about', {});
   } catch (error) {
-      res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with viewing the 'about' page. Please try later to send this error message to me:\n '${error}'`)
   }
 }
 
@@ -34,7 +34,7 @@ exports.contact = async(req, res) => {
   try {
       res.render('contact', {email_sent: false});
   } catch (error) {
-      res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with viewing the 'contact' page. Please try later to send this error message to me:\n '${error}'`)
   }
 }
 
@@ -63,7 +63,7 @@ exports.search = async(req, res) => {
         res.render('index', {cocktail_list: cocktails});
         
     } catch (error) {
-        res.status(500).send({message: error.message} || "ERROR OCCURED");
+        res.send(`There was a problem with this search. Please send this error message to me through the contact tab:\n '${error}'`);
     }
 }
 
@@ -79,7 +79,7 @@ exports.detail = async(req, res) => {
       await chosen_cocktail[0].populate('ingredients.ingredient')
       res.render('detail', {cocktail: chosen_cocktail[0]});
   } catch (error) {
-      res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with viewing this cocktail. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 }
 
@@ -91,7 +91,7 @@ exports.ingredients = async(req, res) => {
       const generic = await Ingredient.find({"type": "generic"}).sort({name:1})
       res.render('ingredients', {main_distillers : main_distillers, liqueur: liqueur, generic: generic});
   } catch (error) {
-      res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 }
 
@@ -165,7 +165,7 @@ exports.getcocktails = async(req, res) => {
     }
     
   } catch (error) {
-      res.status(500).send({message: error.message} || "ERROR OCCURED");
+      res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 } 
 
