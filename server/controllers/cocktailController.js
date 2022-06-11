@@ -13,9 +13,9 @@ exports.homepage = async(req, res) => {
     try {
 
         const cocktails = await Cocktail.find({}).sort({name: 1});
-        res.render('index', {cocktail_list: cocktails});
+        return res.render('index', {cocktail_list: cocktails});
     } catch (error) {
-      res.send(`There was a problem with viewing the 'home' page. Please try later to send this error message to me:\n '${error}'`)
+        return res.send(`There was a problem with viewing the 'home' page. Please try later to send this error message to me:\n '${error}'`)
     }
 
 }
@@ -23,18 +23,18 @@ exports.homepage = async(req, res) => {
 
 exports.about = async(req, res) => {
   try {
-      res.render('about', {});
+      return res.render('about', {});
   } catch (error) {
-      res.send(`There was a problem with viewing the 'about' page. Please try later to send this error message to me:\n '${error}'`)
+      return res.send(`There was a problem with viewing the 'about' page. Please try later to send this error message to me:\n '${error}'`)
   }
 }
 
 
 exports.contact = async(req, res) => {
   try {
-      res.render('contact', {email_sent: false});
+      return res.render('contact', {email_sent: false});
   } catch (error) {
-      res.send(`There was a problem with viewing the 'contact' page. Please try later to send this error message to me:\n '${error}'`)
+      return res.send(`There was a problem with viewing the 'contact' page. Please try later to send this error message to me:\n '${error}'`)
   }
 }
 
@@ -47,10 +47,10 @@ exports.process_contact = async(req, res) => {
     text: `Message from ${user_message.name}. Email: ${user_message.email}\n${user_message.message}`,
   }
   sgMail.send(msg).then(() => {
-    res.render('contact', {email_sent: true});
+    return res.render('contact', {email_sent: true});
   })
   .catch((error) => {
-    res.send(`There was a problem with sending the email. Please try later to send this error message to me:\n '${error}'`)
+    return res.send(`There was a problem with sending the email. Please try later to send this error message to me:\n '${error}'`)
   })
 }
 
@@ -60,10 +60,10 @@ exports.search = async(req, res) => {
         let searchTerm = req.body.searchTerm;
        
         const cocktails = await Cocktail.find({"name": {$regex: searchTerm, $options: "i" }}).sort({name: 1});
-        res.render('index', {cocktail_list: cocktails});
+        return res.render('index', {cocktail_list: cocktails});
         
     } catch (error) {
-        res.send(`There was a problem with this search. Please send this error message to me through the contact tab:\n '${error}'`);
+        return res.send(`There was a problem with this search. Please send this error message to me through the contact tab:\n '${error}'`);
     }
 }
 
@@ -73,13 +73,13 @@ exports.detail = async(req, res) => {
       cocktail_name = req.params.cocktailName;
 
       var chosen_cocktail = await Cocktail.find({"name": cocktail_name});
-      if (chosen_cocktail.length > 1) res.send("Found too many cocktails")
-      if (chosen_cocktail.length === 0) res.send("No cocktail found matching this name")
+      if (chosen_cocktail.length > 1) return res.send("Found too many cocktails")
+      if (chosen_cocktail.length === 0) return res.send("No cocktail found matching this name")
 
       await chosen_cocktail[0].populate('ingredients.ingredient')
-      res.render('detail', {cocktail: chosen_cocktail[0]});
+      return res.render('detail', {cocktail: chosen_cocktail[0]});
   } catch (error) {
-      res.send(`There was a problem with viewing this cocktail. Please send this error message to me through the contact tab:\n '${error}'`);
+      return res.send(`There was a problem with viewing this cocktail. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 }
 
@@ -89,9 +89,9 @@ exports.ingredients = async(req, res) => {
       const main_distillers = await Ingredient.find({type: 'main distiller'}).sort({name:1})
       const liqueur = await Ingredient.find({"type": "liquer"}).sort({name:1})
       const generic = await Ingredient.find({"type": "generic"}).sort({name:1})
-      res.render('ingredients', {main_distillers : main_distillers, liqueur: liqueur, generic: generic});
+      return res.render('ingredients', {main_distillers : main_distillers, liqueur: liqueur, generic: generic});
   } catch (error) {
-      res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
+      return res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 }
 
@@ -107,8 +107,7 @@ exports.getcocktails = async(req, res) => {
         // If no cocktails match the ingredients send an appropriate response
         if (cocktails.length === 0) {
           response = '<b>No Cocktails Fitting these Ingredients</b>'
-          res.send({response: response})
-          return
+          return res.send({response: response})
         }
 
         res_0_missing = ''
@@ -155,17 +154,17 @@ exports.getcocktails = async(req, res) => {
         if (res_2_missing != '') {
           response = response + `<h5><b><u>Cocktails which require you 2 more ingredients:</u></b></h5><br>${res_2_missing}<br>`
         }
-        res.send({response: response})
+        return res.send({response: response})
     });
     } 
     // Response if the user didnt select any ingredients / unlselected all ingredients
     else {
       response = ''
-      res.send({response: response})
+      return res.send({response: response})
     }
     
   } catch (error) {
-      res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
+      return res.send(`There was a problem with the 'ingredient browser'. Please send this error message to me through the contact tab:\n '${error}'`);
   }
 } 
 
